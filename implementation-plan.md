@@ -76,28 +76,30 @@ Issue and booking **must** result in an email; booking inquiry can optionally tr
 | STT            | Browser Web Speech API                                   |
 | Intent + reply | Groq or Hugging Face Inference or OpenAI free tier       |
 | TTS            | Browser Web Speech API                                   |
-| Email          | Resend (3k/mo) or Nodemailer + Gmail                      |
-| App shape      | Express server + static frontend                         |
+| Email          | Resend (3k/mo) HTTP API                                  |
+| App shape      | Next.js (App Router): React UI + Route Handler `/api/process` |
 
 ---
 
 ## Project Structure
 
 ```
-new_project/
+gmail_receptionist/
 ├── implementation-plan.md
 ├── README.md
 ├── package.json
+├── next.config.mjs
+├── jsconfig.json
 ├── .env.example
-├── server/
-│   ├── index.js
+├── app/
+│   ├── layout.jsx
+│   ├── page.jsx
+│   ├── globals.css
+│   └── api/process/route.js
+├── lib/
 │   ├── intent.js
 │   ├── email.js
 │   └── prompts.js
-├── public/
-│   ├── index.html
-│   ├── app.js
-│   └── styles.css
 └── .gitignore
 ```
 
@@ -106,11 +108,11 @@ new_project/
 ## Implementation Checklist
 
 1. **Implementation plan document** – This file at project root (purpose, architecture, intents, flow, stack, structure, steps).
-2. **Backend** – Express, CORS for localhost, POST /api/process, LLM for intent+reply, email sender (Resend or Nodemailer), env-based config.
-3. **Frontend** – Single page, Start/Stop listening, Web Speech API (STT + TTS), call /api/process, display intent and email confirmation.
+2. **Backend** – Next.js Route Handler `POST /api/process`, LLM for intent+reply, Resend email, env-based config (same-origin; no separate CORS for the app).
+3. **Frontend** – `app/page.jsx` (client): Start/Stop listening, Web Speech API (STT + TTS), `fetch('/api/process')`, activity log.
 4. **Prompts and robustness** – System prompt returns only the three intents and valid JSON; validate intent in code; fallback for unknown.
-5. **Configuration and docs** – .env.example (LLM_API_KEY, LLM_PROVIDER, RESEND_API_KEY or SMTP_*, EMAIL_TO), README with run instructions.
-6. **Security** – No hardcoded secrets; validate/sanitize transcript length; CORS limited to localhost.
+5. **Configuration and docs** – .env.example (LLM_API_KEY, LLM_PROVIDER, RESEND_API_KEY, EMAIL_FROM optional), README with run instructions.
+6. **Security** – No hardcoded secrets; validate/sanitize transcript length and request body size on the API route.
 
 ---
 

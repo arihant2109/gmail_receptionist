@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #1a1b26;
+  color: #c0caf5;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #7aa2f7;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #a9b1d6;
+}
+
+.email-form {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #24283b;
+  border-radius: 8px;
+  border: 1px solid #363b54;
+}
+
+.email-form label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #c0caf5;
+  margin-bottom: 0.35rem;
+}
+
+.field-hint {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  color: #565f89;
+}
+
+.email-form input[type='email'] {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  font-size: 1rem;
+  color: #c0caf5;
+  background: #16161e;
+  border: 1px solid #363b54;
+  border-radius: 8px;
+}
+
+.email-form input[type='email']:focus {
+  outline: 2px solid #7aa2f7;
+  outline-offset: 2px;
+}
+
+.email-form input[type='email']::placeholder {
+  color: #565f89;
+}
+
+.controls {
+  margin-bottom: 1.5rem;
+}
+
+.btn-toggle {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1b26;
+  background: #7aa2f7;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-toggle:hover {
+  background: #89b4fa;
+}
+
+.btn-toggle:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.type-fallback {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #24283b;
+  border-radius: 8px;
+  border: 1px solid #363b54;
+}
+
+.type-fallback label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #c0caf5;
+  margin-bottom: 0.35rem;
+}
+
+.type-fallback textarea {
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.45;
+  color: #c0caf5;
+  background: #16161e;
+  border: 1px solid #363b54;
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+.type-fallback textarea:focus {
+  outline: 2px solid #7aa2f7;
+  outline-offset: 2px;
+}
+
+.type-fallback textarea:disabled {
+  opacity: 0.7;
+}
+
+.btn-send-typed {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1a1b26;
+  background: #9ece6a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-send-typed:hover:not(:disabled) {
+  background: #b9f27c;
+}
+
+.btn-send-typed:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  background: #24283b;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  min-height: 2.5rem;
+}
+
+.log {
+  background: #16161e;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #363b54;
+}
+
+.log-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #565f89;
+  margin-bottom: 0.5rem;
+}
+
+.log-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.log-list li {
+  padding: 0.35rem 0;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #24283b;
+}
+
+.log-list li:last-child {
+  border-bottom: none;
+}
+
+.log-list li.user {
+  color: #9ece6a;
+}
+
+.log-list li.intent {
+  color: #bb9af7;
+}
+
+.log-list li.reply {
+  color: #7aa2f7;
+}
+
+.log-list li.email {
+  color: #73daca;
+}
+
+.log-list li.warn {
+  color: #e0af68;
+}
+
+.log-list li.error {
+  color: #f7768e;
+}
+
+.log-list li.info {
+  color: #a9b1d6;
+}
